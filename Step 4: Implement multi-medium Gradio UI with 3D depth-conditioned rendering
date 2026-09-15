@@ -4,9 +4,14 @@ An AI-powered web application that transforms portraits, landscapes, and objects
 
 ---
 
-## 📌 Architecture Evolution
+## 📌 Architecture
 
 To prevent identity drift and facial distortion caused by simple 2D edge detectors, the pipeline utilizes **3D Depth Estimation (`Intel/dpt-hybrid-midas`)** paired with **ControlNet Depth**. This extracts topographic facial contours (nose bridge, cheekbones, jawline) so the generative model repaints texture and shading directly over the subject's true geometry.
+
+1. **Topographic Extraction:** Intel DPT MiDaS generates a dense spatial relief map of the subject.
+2. **Structural Conditioning:** ControlNet Depth locks the 3D volume into Stable Diffusion.
+3. **Generative Medium Transfer:** Stable Diffusion 1.5 generates the requested medium (graphite, watercolor, oil, charcoal) over the physical contours.
+4. **Interface:** Gradio provides real-time adjustments, previews, and dual-output visualization.
 
 ---
 
@@ -27,7 +32,7 @@ To prevent identity drift and facial distortion caused by simple 2D edge detecto
 - [x] Preprocessing migration: Install `timm` depth estimation stack
 - [x] Implement DPT 3D facial depth extraction module
 - [x] Load Stable Diffusion 1.5 + ControlNet Depth pipeline
-- [ ] Deploy multi-medium Gradio web interface
+- [x] Deploy multi-medium Gradio web interface
 
 ---
 
