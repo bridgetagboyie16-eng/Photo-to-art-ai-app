@@ -1,0 +1,38 @@
+# Photo-to-Art AI 🎨
+
+An AI-powered web application that transforms portraits, landscapes, and objects into traditional artistic mediums (fine graphite pencil, charcoal, watercolor, oil painting) while strictly preserving facial likeness and structural identity.
+
+---
+
+## 📌 Architecture Evolution
+
+To prevent identity drift and facial distortion caused by simple 2D edge detectors, the pipeline utilizes **3D Depth Estimation (`Intel/dpt-hybrid-midas`)** paired with **ControlNet Depth**. This extracts topographic facial contours (nose bridge, cheekbones, jawline) so the generative model repaints texture and shading directly over the subject's true geometry.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Language:** Python 3
+* **AI & Deep Learning:** PyTorch, Hugging Face `diffusers`, `transformers`, `accelerate`, `timm`
+* **Conditioning Engine:** ControlNet Depth (`lllyasviel/sd-controlnet-depth`)
+* **Generative Foundation:** Stable Diffusion 1.5 (`runwayml/stable-diffusion-v1-5`)
+* **Computer Vision:** Intel DPT MiDaS, OpenCV (`cv2`), Pillow (PIL)
+* **Frontend UI:** Gradio
+
+---
+
+## 🚀 Progress & Implementation Status
+
+- [x] Repository initialization & cloud GPU runtime setup
+- [x] Preprocessing migration: Install `timm` depth estimation stack
+- [ ] Implement DPT 3D facial depth extraction module
+- [ ] Load Stable Diffusion 1.5 + ControlNet Depth pipeline
+- [ ] Deploy multi-medium Gradio web interface
+
+---
+
+## 🔒 Copyright & License
+
+Copyright (c) 2026 Celeste Amaris. All rights reserved.
+
+This repository and its source code are made publicly viewable for showcase and educational purposes only. No permission is granted to copy, modify, distribute, or use this software in any form without explicit written permission from the author.
