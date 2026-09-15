@@ -26,7 +26,7 @@ To prevent identity drift and facial distortion caused by simple 2D edge detecto
 - [x] Repository initialization & cloud GPU runtime setup
 - [x] Preprocessing migration: Install `timm` depth estimation stack
 - [x] Implement DPT 3D facial depth extraction module
-- [ ] Load Stable Diffusion 1.5 + ControlNet Depth pipeline
+- [x] Load Stable Diffusion 1.5 + ControlNet Depth pipeline
 - [ ] Deploy multi-medium Gradio web interface
 
 ---
