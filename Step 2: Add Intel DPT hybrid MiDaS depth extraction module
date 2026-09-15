@@ -16,7 +16,7 @@ To prevent identity drift and facial distortion caused by simple 2D edge detecto
 * **AI & Deep Learning:** PyTorch, Hugging Face `diffusers`, `transformers`, `accelerate`, `timm`
 * **Conditioning Engine:** ControlNet Depth (`lllyasviel/sd-controlnet-depth`)
 * **Generative Foundation:** Stable Diffusion 1.5 (`runwayml/stable-diffusion-v1-5`)
-* **Computer Vision:** Intel DPT MiDaS, OpenCV (`cv2`), Pillow (PIL)
+* **Computer Vision:** Intel DPT MiDaS, Pillow (PIL), NumPy
 * **Frontend UI:** Gradio
 
 ---
@@ -25,7 +25,7 @@ To prevent identity drift and facial distortion caused by simple 2D edge detecto
 
 - [x] Repository initialization & cloud GPU runtime setup
 - [x] Preprocessing migration: Install `timm` depth estimation stack
-- [ ] Implement DPT 3D facial depth extraction module
+- [x] Implement DPT 3D facial depth extraction module
 - [ ] Load Stable Diffusion 1.5 + ControlNet Depth pipeline
 - [ ] Deploy multi-medium Gradio web interface
 
