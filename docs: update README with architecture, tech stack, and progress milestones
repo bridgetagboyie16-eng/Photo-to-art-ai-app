@@ -1,45 +1,30 @@
-# Photo-to-Art AI Studio 🎨
+# Photo-to-Art AI 🎨
 
-A custom AI-powered image-to-image application that transforms uploaded photos into distinct art styles (such as detailed graphite pencil sketches, charcoal, and watercolor) while preserving the original facial contours and geometry.
-
----
-
-## 🌟 Overview & Architecture
-
-Turning a photo into art using generative AI without losing the subject's identity requires three coordinated layers:
-
-1. **Preprocessor (The Stencil):** Extracts edge contours using OpenCV (Canny edge detection) so facial geometry, proportions, and lines are locked.
-2. **AI Engine (The Brain):** Uses **Stable Diffusion 1.5** coupled with **ControlNet** to synthesize artistic textures strictly within the traced boundaries.
-3. **Frontend UI (The Studio):** A responsive, browser-based interface built with **Gradio** featuring image uploads, style prompt inputs, and side-by-side comparisons.
+An AI-powered web application that converts real-world portrait photos into custom artistic styles (such as detailed graphite pencil sketches, ink drawings, and watercolor) while strictly preserving original facial geometry and composition.
 
 ---
 
-## 🛠️ Tech Stack & Tools
+## 📌 How It Works
 
-| Component | Technology | Purpose |
-| :--- | :--- | :--- |
-| **Language** | Python 3 | Core programming language for data pipelines and model execution. |
-| **Deep Learning** | PyTorch (`torch`) | Tensor computation framework utilizing GPU acceleration. |
-| **Generative AI** | Stable Diffusion 1.5 | Pre-trained text-guided diffusion model for texture and shading. |
-| **Structure Control**| ControlNet (`canny` / `lineart`) | Preserves composition and eliminates facial warping. |
-| **Computer Vision** | OpenCV & Pillow | Image resizing, grayscale conversion, and edge outline tracing. |
-| **User Interface** | Gradio | Generates the interactive web application in pure Python. |
-| **Environment** | Google Colab (T4 GPU) | High-speed cloud compute for rapid prototyping and testing. |
+1. **Preprocessing (Outline Extraction):** Uses **OpenCV** and the Canny edge-detection algorithm to extract a clean structural line map from the input photo.
+2. **Structural Guidance:** Feeds the edge map into **ControlNet (Canny)** to lock facial landmarks, hair contours, and proportions in place.
+3. **Generative Style Transfer:** Uses **Stable Diffusion 1.5** to repaint the subject following user-defined text prompts and style presets.
+4. **Interactive Web Interface:** Built using **Gradio** for quick photo uploads, style selection, and side-by-side output comparison.
 
 ---
 
-## 🚀 Progress & Milestones
+## 🛠️ Tech Stack
 
-- [x] **Step 1:** Initialized repository and installed core AI/vision libraries (`diffusers`, `transformers`, `torch`, `opencv-python`, `gradio`).
-- [x] **Step 2:** Implemented the OpenCV edge-detection preprocessor (`extract_lineart`) to generate structural stencils.
-- [ ] **Step 3:** Download and connect pre-trained Stable Diffusion + ControlNet weights on GPU.
-- [ ] **Step 4:** Build and launch the Gradio interactive web UI.
-- [ ] **Step 5:** Port the standalone pipeline to local environment.
+* **Language:** Python 3
+* **AI & Deep Learning:** PyTorch, Hugging Face `diffusers`, `transformers`, `accelerate`
+* **Models:** Stable Diffusion 1.5 (`runwayml/stable-diffusion-v1-5`) + ControlNet Canny (`lllyasviel/sd-controlnet-canny`)
+* **Computer Vision:** OpenCV (`cv2`), Pillow (PIL)
+* **Frontend UI:** Gradio
 
 ---
 
-## 🔒 Copyright & Terms of Use
+## 🔒 Copyright & License
 
 Copyright (c) 2026 Celeste Amaris. All rights reserved.
 
-This project and its source code are made publicly viewable for showcase and educational purposes only. No permission is granted to copy, modify, distribute, or use this software in any form without explicit written permission from the author.
+This repository and its source code are made publicly viewable for showcase and educational purposes only. No permission is granted to copy, modify, distribute, or use this software in any form without explicit written permission from the author.
